@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mc:
+    image: itzg/minecraft-server
+    ports:
+      - 25565:25565
+    environment:
+      EULA: "TRUE"
+      TYPE: "FTBA"
+      FTB_MODPACK_ID: 88
+      MEMORY: "12GB"
+      TZ: "Europe/Berlin"
+      USE_AIKAR_FLAGS: "true"
+    tty: true
+    mem_limit: 16G
+    cpus: 4
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      # attach a directory relative to the directory containing this compose file
+      - ~/games/ftb-academy-116:/data
